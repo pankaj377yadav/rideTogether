@@ -3,7 +3,6 @@ import * as Yup from 'yup';
 import Link from 'next/link';
 
 const Register = ( )=> {
-   
     return (
         <div>
     

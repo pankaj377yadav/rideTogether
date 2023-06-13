@@ -1,9 +1,13 @@
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
+import {useState} from 'react'
 import Link from 'next/link';
-
+import {changeToken} from '../../redux/reducers/userSlice'
+import { useDispatch, useSelector } from 'react-redux';
 const Login = ( )=> {
-
+  const [error, setError] = useState('')
+  const {token} = useSelector(state=>state.user)
+    const dispatch = useDispatch()
     const triggerLogin = async(values)=>{
       const requestOptions = {
         method: 'POST',
@@ -12,13 +16,18 @@ const Login = ( )=> {
     };
     const res = await fetch('http://localhost:3001/login', requestOptions)
     const data = await res.json()
-  
+    if(data.isLoggedIn){
+      dispatch(changeToken(data))
+    }else{
+      setError(data.msg)
+    }
 
     }
+
+ 
     return (
         <div>
-         
-      
+   
         <Formik
           initialValues={{
             phoneNumber: '',
@@ -40,6 +49,8 @@ const Login = ( )=> {
               {errors.password && touched.password? (
                 <div>{errors.password}</div>
               ) : null}
+              <br/>
+              <span style={{color:'crimson'}}>{error}</span>
               <br/>
               <button type="submit">Submit</button>
              Dont have an account yet ?   <Link href="/register">Sign Up</Link>
