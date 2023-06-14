@@ -3,7 +3,7 @@ import * as Yup from 'yup';
 import {useState} from 'react'
 import Link from 'next/link';
 import { useRouter } from 'next/router'
-import {changeToken} from '../../redux/reducers/userSlice'
+import {setUserDetails} from '../../redux/reducers/userSlice'
 import { useDispatch, useSelector } from 'react-redux';
 const Login = ( )=> {
   const router = useRouter()
@@ -19,7 +19,7 @@ const Login = ( )=> {
     const res = await fetch('http://localhost:3001/login', requestOptions)
     const data = await res.json()
     if(data.isLoggedIn){
-      dispatch(changeToken(data))
+      dispatch(setUserDetails(data))
     }else{
       setError(data.msg)
     }

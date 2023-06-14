@@ -28,8 +28,10 @@ const jwt = require('jsonwebtoken');
         console.log(token)
         res.json({
         isLoggedIn: true,
+        phoneNumber: data.phoneNumber,
         msg:  "success",
         id: data._id,
+        role: data.role,
         token: token
         })
       }else{

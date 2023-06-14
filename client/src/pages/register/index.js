@@ -11,7 +11,8 @@ const Register = ( )=> {
           initialValues={{
             phoneNumber: '',
             password: '',
-            email: ''
+            email: '',
+            role: ''
           }}
           onSubmit={values => {
             const requestOptions = {
@@ -37,6 +38,9 @@ const Register = ( )=> {
               <br/>
               <Field name="email"  placeholder="email"/>
               {errors.email && touched.email ? <div>{errors.email}</div> : null}
+              <br/>
+              <Field name="role"  placeholder="role"/>
+              {errors.role && touched.role ? <div>{errors.role}</div> : null}
               <br/>
               
               <button type="submit">Submit</button>
