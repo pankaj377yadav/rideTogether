@@ -20,7 +20,6 @@ const Login = ( )=> {
     const data = await res.json()
     if(data.isLoggedIn){
       dispatch(changeToken(data))
-      router.push('/users')
     }else{
       setError(data.msg)
     }
