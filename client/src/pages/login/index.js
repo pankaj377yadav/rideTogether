@@ -11,19 +11,26 @@ const Login = ( )=> {
   const {token} = useSelector(state=>state.user)
     const dispatch = useDispatch()
     const triggerLogin = async(values)=>{
-      const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(values)
-    };
-    const res = await fetch('http://localhost:3001/login', requestOptions)
-    const data = await res.json()
-    if(data.isLoggedIn){
-      dispatch(setUserDetails(data))
-    }else{
-      setError(data.msg)
-    }
-
+      try{
+            const requestOptions = {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(values)
+      };
+      const res = await fetch('http://localhost:3001/login', requestOptions)
+      const data = await res.json()
+      if(data.isLoggedIn){
+        dispatch(setUserDetails(data))
+      }else{
+        setError(data.msg)
+      }
+  
+    }catch(err){
+        setError('something went wrong!')
+      }
+    
+    
+     
     }
 
  

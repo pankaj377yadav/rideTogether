@@ -8,14 +8,10 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   const {token} = useSelector(state=> state.user)
-  if(!token){
-    return (
-      <Login/>
-    )
-  }else{
-    return (
-      <Users/>
-    )
-  }
+  if(token){
+     return (<Users/>) }
+     else{
+      return (<Login/>)
+     } 
  
 }
