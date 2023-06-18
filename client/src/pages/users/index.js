@@ -1,11 +1,17 @@
 import BasicMenu from '@/components/MenuDropdown'
-import React from 'react'
+import Map from '@/components/Map'
 
+import React from 'react'
+import styles from '../../styles/users.module.css'
 const Users = () => {
   return (
     <div>
-      User
-      <BasicMenu/></div>
+      <div className={styles.basicMenu}>
+      <BasicMenu/>
+      </div>
+
+      <Map/>
+      </div>
   )
 }
 

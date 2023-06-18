@@ -1,8 +1,10 @@
+import BasicMenu from '@/components/MenuDropdown'
 import React from 'react'
-
 const Rider = () => {
   return (
-    <div>Rider</div>
+    <div>Rider
+        <BasicMenu/>
+    </div>
   )
 }
 

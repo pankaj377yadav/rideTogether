@@ -9,13 +9,19 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   const {token,role} = useSelector(state=> state.user)
-  if(token && role == 'user'){
-          return <User/>
-    }else if(token && role == 'rider'){
-         return <Rider/>
+  const AuthorizedScreen=()=>{
+    switch(role){
+      case 'user':
+        return <Users/>
+      case 'rider':
+        return <Rider/>
     }
-    else{
+  }
+  
+  if(token){
+         return <AuthorizedScreen/>
+    }
       return (<Login/>)
-     } 
+
  
 }
