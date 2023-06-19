@@ -1,5 +1,7 @@
-.basicMenu{
+.basicMenu {
     float: right;
+    margin-top: -30px;
+    right: 0;
     position: absolute;
 }
 

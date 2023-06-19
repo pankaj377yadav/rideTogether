@@ -11,11 +11,8 @@ export default function CustomizedInputBase() {
   return (
     <Paper
       component="form"
-      sx={{ display: 'flex', marginLeft:'-15px', alignItems: 'center', width: 400 }}
+      sx={{ display: 'flex', alignItems: 'center', width: 400 }}
     >
-      <IconButton sx={{ p: '10px' }} aria-label="menu">
-        <MenuIcon />
-      </IconButton>
       <InputBase
         sx={{ ml: 1, flex: 1, backgroundColor:'#fff' }}
         placeholder="Search Google Maps"

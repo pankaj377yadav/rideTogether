@@ -6,9 +6,7 @@ import styles from '../../styles/users.module.css'
 const Users = () => {
   return (
     <div>
-      <div className={styles.basicMenu}>
-      <BasicMenu/>
-      </div>
+  
 
       <Map/>
       </div>
