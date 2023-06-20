@@ -9,7 +9,8 @@ const jwt = require('jsonwebtoken');
     const data = await User.create(req.body)
     if(data) {
       res.json({
-        msg: "registration success"
+        msg: "registration success",
+        success: true
       })
     }
   }

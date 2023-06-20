@@ -1,8 +1,23 @@
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import Link from 'next/link';
+import { useRouter } from 'next/router'
 
 const Register = ( )=> {
+  const router = useRouter()
+  const handleRegister = async(values) => {
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(values)
+  };
+  const res= await fetch('http://localhost:3001/register', requestOptions)
+  const data= await res.json()
+  if(data.success){
+    router.push('/')
+  }
+  }
+
     return (
         <div>
     
@@ -15,13 +30,7 @@ const Register = ( )=> {
             role: ''
           }}
           onSubmit={values => {
-            const requestOptions = {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify(values)
-          };
-          fetch('http://localhost:3001/register', requestOptions)
-      
+            handleRegister(values)
           }}
         >
           {({ errors, touched }) => (
